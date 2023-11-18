@@ -5,7 +5,7 @@
 }
 body{
     overflow-x: hidden;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,url(d1c7058b6b7d8f379caec2fab2778d96.jpg);    
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,url(backgroundimg.webp);    
 }
   .forme_container{
    
@@ -36,4 +36,11 @@ body{
     background-color: beige;
   }
 
-  
+
+  @media  screen and ( max-width: 768px) {
+    .dar{
+       margin-right: 400px !important;
+    }
+  }
+
+ 

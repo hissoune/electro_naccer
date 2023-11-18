@@ -11,9 +11,17 @@
     <link rel="stylesheet" href="style.css"></head>
 </head>
 <body>
-    <nav class="bg-primary d-flex justify-content-between p-3">
-        <!-- Your navigation content -->
-    </nav>
+<nav class="bg-primary d-flex justify-content-between p-3 ">
+  <div class="d-flex mx-4 mt-1 ">
+    <h5>Welcom! in electrolherba</h5>
+  </div>
+  <div class="mx-4">
+    <a href="index.php" class="btn border-white border-1">LOG out</a>
+    <img width="20 px " height="20px" class="mx-5"  src="logo.png" alt="">
+
+  </div>
+
+ </nav>
 
     <div class="d-flex justify-content-center mt-3 mb-4"><h4 class="text-light">Electro Naccer</h4></div>
 
@@ -36,12 +44,13 @@
     $category_list =  $connection->query("SELECT * FROM Category");
    
    ?>
-<form method="post">
-        <label for="categorySelect">Select</label>
+   <div class="d-flex">
+<form method="post" style="margin-left:75px" class="p-2  my-5 ">
+       
         <select name="selectedCategory" id="categorySelect">
             <?php
             // Iterate through the fetched categories and populate the dropdown
-            echo '<option value="All" style="color: red; font-size: 18px;">All</option>';
+            echo '<option value="All" style="color: red; padding: 10px; font-size: 18px;">All</option>';
             while ($productsCategory =   $category_list->fetch_assoc()) {
                 $categoryName = $productsCategory['Category_nam'];
                 echo '<option value="' . $categoryName . '" style="color: red; font-size: 18px;">' . $categoryName . '</option>';
@@ -49,32 +58,49 @@
             ?>
         </select>
 
-        <button type="submit"> Selecte </button>
+        <button type="submit" class="btn bg-primary border-light"> Selecte </button>
 </form>
-<!-- Filter products by category -->
-    <!-- Filter products by category -->
-<?php  
-   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $selectedCategory = $_POST['selectedCategory'];
+<form method="post" style="margin-left:75px" class="p-2  my-5 ">
+       
+        <select name="end-soon-products" id="end-soon-products">
+        <?php
+            // Iterate through the fetched categories and populate the dropdown
+            echo '<option  value="All" style="color: red; padding: 10px; font-size: 18px;">moins que la quantité minimale</option>';
+            
+            ?>
+        </select>
 
-    if($selectedCategory == "All") {
-        display_products($result);
-    } else {
-        // Fetch products based on the selected category
-        $filteredProducts = $connection->query("SELECT Products.Product_Id,Products.Product_name, Products.Product_img, Products.prix_unitair, Products.mini_de_stok, Products.max_de_stok, Category.Category_nam FROM Products JOIN Category ON Products.categoryy_ID = Category.Category_Id and Category.Category_nam = '$selectedCategory';");
-        // Call the function to display filtered products
-        display_products($filteredProducts);
-    }
-
-
-
-
-}else {
-// If the form is not submitted, display all products initially
-display_products($result);
-}
+        <button type="submit" class="btn bg-primary border-light"> select </button>
+</form>
+</div>
+<!-- filtraj blcategoryat-->
+<?php 
+ 
 
 ?>
+    
+ 
+<?php  
+if (isset($_POST["end-soon-products"])) {
+    $filteredProductsByQuantity = $connection->query("SELECT * from Products where max_de_stok < mini_de_stok;");
+    display_products($filteredProductsByQuantity);
+} elseif (isset($_POST['selectedCategory'])) {
+    $selectedCategory = $_POST['selectedCategory'];
+    if ($selectedCategory == "All") {
+        display_products($result);
+    } else {
+        $filteredProducts = $connection->query("SELECT Products.Product_Id,Products.Product_name, Products.Product_img, Products.prix_unitair, Products.mini_de_stok, Products.max_de_stok, Category.Category_nam FROM Products JOIN Category ON Products.categoryy_ID = Category.Category_Id and Category.Category_nam = '$selectedCategory';");
+        display_products($filteredProducts);
+    }
+} else {
+    display_products($result);
+}
+?>
+
+
+
+
+
 
 
 
@@ -96,7 +122,7 @@ display_products($result);
             $stockQuantity = $product['max_de_stok'];
 
             // Display product card
-            echo '<div style="height:300px; border:2px black solid;" class="col-lg-2 card mx-3 mb-2 p-2 bg-light">';
+            echo '<div style="height:300px; border:2px black solid;" class="col-lg-2 card  mb-3 p-2 bg-light dar ">';
             echo '<img src="' . $imagePath . '" class="h-75" alt="Product Image">';
             echo '<p>' . $label . '</p>';
             echo '<p>' . $unitPrice . ' DH</p>';
@@ -108,5 +134,44 @@ display_products($result);
 
    
     ?>
+     <footer class="no-print bg-dark text-light">
+        <div class="card mt-5 mb-4"></div>  
+        <div class=" container tol MMM">
+      <div class="row  FFF ">
+      <div class=" col-lg-3  col-sm-4 col-6"><img class="w-50 " src="logo.png" alt=""></h5>
+        <P class="w-50">Savor the artistry where every dish is a culinary masterpiece</P>
+      
+      </div>
+      <div class="col-lg-3 col-sm-4 col-6">
+          <h6 >Useful links</h6>
+          <p>About us</p>
+          <p>Events</p>
+          <p>Blogs</p>
+          <p>FAQ</p>
+      </div>
+      <div class="  col-lg-3 col-sm-4 col-6">
+          <h6 >Main Menu</h6>
+          <p>Home</p>
+          <p>Menu</p>
+          <p>Blogs</p>
+          <p>Create</p>
+
+      </div>
+      <div class=" col-lg-3  col-sm-4 col-6">
+          <h6 >Contact Us</h6>
+          <p>wokstar@email.coms</p>
+          <p>+64 958 248 966</p>
+          <p>Social media</p>
+       
+      </div>
+  </div>
+  <div   class="row " >
+      <div class="col-lg-5   ">
+  
+</div>
+  <div class="col-lg-5 mt-4  col-12 "><p >Copyright   2023 Dscode | All rights reserved</p></div>
+</div>
+  </div> 
+</footer>
 </body>
 </html>

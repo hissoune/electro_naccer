@@ -14,14 +14,14 @@
 <body >
   
   
- <nav class="bg-primary d-flex justify-content-between p-3 ">
+<nav class="bg-primary d-flex justify-content-between p-3 ">
   <div class="d-flex mx-4 mt-1 ">
-    <img width="20px " height="20px" class="mx-5" src="d1c7058b6b7d8f379caec2fab2778d96.jpg" alt="">
-    <h5>hdfiuofibn</h5>
+    
+    <h5>Welcom! in electrolherba</h5>
   </div>
   <div class="mx-4">
-    <span class="btn border-white border-1">EN</span>
-    <img width="20 px " height="20px" class="mx-5"  src="d1c7058b6b7d8f379caec2fab2778d96.jpg" alt="">
+    
+    <img width="20 px " height="20px" class="mx-5"  src="logo.png" alt="">
 
   </div>
 
