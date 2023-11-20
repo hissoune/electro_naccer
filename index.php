@@ -96,7 +96,45 @@ $connection->close();
 
 
 
+<footer class="no-print bg-dark text-light">
+        <div class="card mt-5 mb-4"></div>  
+        <div class=" container tol MMM">
+      <div class="row  FFF ">
+      <div class=" col-lg-3  col-sm-4 col-6"><img class="w-50 " src="logo.png" alt=""></h5>
+        <P class="w-50">Savor the artistry where every dish is a culinary masterpiece</P>
+      
+      </div>
+      <div class="col-lg-3 col-sm-4 col-6">
+          <h6 >Useful links</h6>
+          <p>About us</p>
+          <p>Events</p>
+          <p>Blogs</p>
+          <p>FAQ</p>
+      </div>
+      <div class="  col-lg-3 col-sm-4 col-6">
+          <h6 >Main Menu</h6>
+          <p>Home</p>
+          <p>Menu</p>
+          <p>Blogs</p>
+          <p>Create</p>
 
+      </div>
+      <div class=" col-lg-3  col-sm-4 col-6">
+          <h6 >Contact Us</h6>
+          <p>wokstar@email.coms</p>
+          <p>+64 958 248 966</p>
+          <p>Social media</p>
+       
+      </div>
+  </div>
+  <div   class="row " >
+      <div class="col-lg-5   ">
+  
+</div>
+  <div class="col-lg-5 mt-4  col-12 "><p >Copyright   2023 Dscode | All rights reserved</p></div>
+</div>
+  </div> 
+</footer>
 
 </body>
 </html>

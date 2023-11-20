@@ -12,12 +12,12 @@
 </head>
 <body>
 <nav class="bg-primary d-flex justify-content-between p-3 ">
-  <div class="d-flex mx-4 mt-1 ">
+  <div class="d-flex mx-4 mt-1 text-light">
     <h5>Welcom! in electrolherba</h5>
   </div>
-  <div class="mx-4">
-    <a href="index.php" class="btn border-white border-1">LOG out</a>
-    <img width="20 px " height="20px" class="mx-5"  src="logo.png" alt="">
+  <div class="mx-4 d-flex">
+    <a href="index.php" class="btn border-white border-1 text-light">LOG out</a>
+    <img width="30 px " height="40px" class="mx-3"  src="logo.png" alt="">
 
   </div>
 
@@ -44,8 +44,8 @@
     $category_list =  $connection->query("SELECT * FROM Category");
    
    ?>
-   <div class="d-flex">
-<form method="post" style="margin-left:75px" class="p-2  my-5 ">
+   <div class="d-flex ">
+<form method="post" style="margin-left:30px" class="  my-5 ">
        
         <select name="selectedCategory" id="categorySelect">
             <?php
@@ -60,7 +60,7 @@
 
         <button type="submit" class="btn bg-primary border-light"> Selecte </button>
 </form>
-<form method="post" style="margin-left:75px" class="p-2  my-5 ">
+<form method="post" style="" class="p-2  ">
        
         <select name="end-soon-products" id="end-soon-products">
         <?php
@@ -106,33 +106,28 @@ if (isset($_POST["end-soon-products"])) {
 
    
     
-    <?php
-   
-   
+<?php
     function display_products($result)
     {
-        echo '<div class="container row mx-5 mb-4 ">';
+        echo '<div class="container-fluid row mx-auto my-4">';
         
-        // Loop through the fetched products and display each card
         while ($product = $result->fetch_assoc()) {
             $imagePath = $product['Product_img'];
             $label = $product['Product_name'];
             $unitPrice = $product['prix_unitair'];
-            $minQuantity = $product['mini_de_stok'];
-            $stockQuantity = $product['max_de_stok'];
 
-            // Display product card
-            echo '<div style="height:300px; border:2px black solid;" class="col-lg-2 card  mb-3 p-2 bg-light dar ">';
-            echo '<img src="' . $imagePath . '" class="h-75" alt="Product Image">';
-            echo '<p>' . $label . '</p>';
-            echo '<p>' . $unitPrice . ' DH</p>';
-            echo '</div>';
+            // Apply spacing and styling to each card
+            echo '<div class="col-lg-3 col-md-4 col-sm-6 mb-3">';
+            echo '<div class="card p-3 h-100">';
+            echo '<img src="' . $imagePath . '" class="card-img-top h-75" alt="Product Image">';
+            echo '<div class="card-body">';
+            echo '<h5 class="card-title">' . $label . '</h5>';
+            echo '<p class="card-text">' . $unitPrice . ' DH</p>';
+            echo '</div></div></div>';
         }
         
         echo '</div>';
     }
-
-   
     ?>
      <footer class="no-print bg-dark text-light">
         <div class="card mt-5 mb-4"></div>  
@@ -159,7 +154,7 @@ if (isset($_POST["end-soon-products"])) {
       </div>
       <div class=" col-lg-3  col-sm-4 col-6">
           <h6 >Contact Us</h6>
-          <p>wokstar@email.coms</p>
+          <p>electro naccer@email.coms</p>
           <p>+64 958 248 966</p>
           <p>Social media</p>
        
